@@ -3,7 +3,6 @@ package se.rihi.sudokoresolver.application;
 import se.rihi.sudokuresolver.domain.SolveSudoku;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -14,6 +13,7 @@ public class SolveSudokuImpl implements SolveSudoku {
     private int[][] grid;
     private String[][] fields;
     private int cel = 0, row = 0;
+    private Integer[] randoms = getRandoms();
 
     public int[][] getGrid() {
         return grid;
@@ -42,13 +42,13 @@ public class SolveSudokuImpl implements SolveSudoku {
         } else {
             // Random numbers 1 - 9
             Integer[] randoms = getRandoms();
-            for (int i = 0; i < 9; i++) {
+            for (int i = 1; i <= 9; i++) {
 
                 // If no duplicates in this row, column, 3x3, assign the value and go to the next
-                if (!isInRow(row, col, randoms[i]) &&
-                        !isInBox(row, col, randoms[i])) {
-                    grid[row][col] = randoms[i];
-                    fields[row][col] = (String.valueOf(randoms[i]));
+                if (!isInRow(row, col, i) &&
+                        !isInBox(row, col, i)) {
+                    grid[row][col] = i;
+                    fields[row][col] = String.valueOf(i);
 
                     // Move to the next cell left-to-right and top-to-bottom
                     if (solvePuzzle(col == 8? (row + 1) : row, (col + 1) % 9))
@@ -69,17 +69,15 @@ public class SolveSudokuImpl implements SolveSudoku {
         for (int i=0; i<9; i++) {
             list.add(i + 1);
         }
-        Collections.shuffle(list);
+//        Collections.shuffle(list);
         return (Integer[]) list.toArray(new Integer[9]);
     }
 
     public boolean isInRow(int row, int col, int value) {
         for (int i = 0; i < 9; i++) {
             // Don't check the same cell
-            if (i != col)
                 if (grid[row][i] == value)
                     return true;
-            if (i != row)
                 if (grid[i][col] == value)
                     return true;
         }
