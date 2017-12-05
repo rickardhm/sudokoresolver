@@ -22,5 +22,6 @@
 hs_err_pid*
 
 # Project files
+*/target
 .idea/
 *.iml
