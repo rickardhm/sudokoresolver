@@ -14,7 +14,7 @@ public class HealthService {
 
     Health health = new HealthImpl();
 
-    @WebMethod
+    @WebMethod(operationName = "ping")
     public String Ping() {
         return health.Ping();
     }
