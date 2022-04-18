@@ -19,13 +19,19 @@
         <log4j_version>2.17.0</log4j_version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+	<log4j-core.version>2.17.0</log4j-core.version>
     </properties>
 
     <dependencies>
+	<dependency>
+	        <groupId>org.apache.logging.log4j</groupId>
+	        <artifactId>log4j-api</artifactId>
+	        <version>${log4j-core.version}</version>
+        </dependency>
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>${log4j_version}</version>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j-core.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
