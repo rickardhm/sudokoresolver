@@ -16,10 +16,10 @@
     </modules>
 
     <properties>
-        <log4j_version>2.17.0</log4j_version>
+        <log4j_version>2.24.0</log4j_version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-	<log4j-core.version>2.17.1</log4j-core.version>
+	    <log4j-core.version>2.24.0</log4j-core.version>
     </properties>
 
     <dependencies>
@@ -36,12 +36,12 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>6.0.16</version>
+            <version>6.1.13</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>5.2.22.RELEASE</version>
+            <version>6.1.13</version>
         </dependency>
     </dependencies>
 
